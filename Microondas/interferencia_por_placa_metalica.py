@@ -20,4 +20,21 @@ dfs_pivoteados={}
 
 for nombre,dataframe in dfs.items():
     dfs_pivoteados[nombre]=dataframe.pivot(index="distancia",columns="indice",values="voltaje")
-    dataframe.reset_index()
+    dataframe.reset_index(inplace=True)
+
+#modifico los voltajes de df1574 porque están en volts y no en milivolts como el resto
+dfs_pivoteados["df1574"].voltaje=dfs_pivoteados["df1574"].voltaje*1000
+
+def grafica_distancia_voltaje():
+    print(dfs_pivoteados.keys())
+    nombre=input("elija que que grafica quiere:")
+    x=dfs_pivoteados.distancia
+    plt.figure(figsize=(8,5))
+    if nombre in dfs_pivoteados.keys():
+        y=dfs_pivoteados[nombre]
+        plt.plot(x,y)
+        plt.grid(True)
+        plt.show()
+
+grafica_distancia_voltaje()
+
