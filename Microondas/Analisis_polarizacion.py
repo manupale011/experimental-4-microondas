@@ -25,6 +25,7 @@ def grafica_voltaje_angulo():
     plt.legend(title='Medición', fontsize=12, title_fontsize=14, loc='best')
 
     plt.tight_layout()  # Ajusta automáticamente los márgenes para que no se corte el texto
+    plt.savefig('intensidad-angulo_polarizacion.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 grafica_voltaje_angulo()
