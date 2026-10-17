@@ -52,9 +52,6 @@ def grafica_frente_polares():
             r = df_pivoteado[i]
             ax.plot(theta, r, marker='', linewidth=2, label=f'Serie {i}')
 
-    # El emisor se mantiene en el origen
-    ax.scatter([0], [0], color='red', marker='s', s=120, zorder=5, label='Emisor')
-
     ax.set_rlim(0, max_voltaje * 1.10)
 
     ax.set_title('Patrón de Radiación ', fontsize=18, fontweight='bold', pad=25)
