@@ -3,9 +3,9 @@ import matplotlib.pyplot as plt
 
 # 1. Las claves van como strings ("df6", etc.) y los valores son los nombres de los archivos
 archivos = {
-    "df6": "reflexion_metal_6cm.csv",
-    "df9": "reflexion_metal_9cm.csv",
-    "df1571": "reflexion_metal_15.2cm_71cm.csv",
+    "placa metalica de 6 cm de ancho": "reflexion_metal_6cm.csv",
+    "placa metalica de 9 cm de ancho": "reflexion_metal_9cm.csv",
+    "placa metalica de 15 cm de ancho": "reflexion_metal_15.2cm_71cm.csv",
     "df1574": "reflexion_metal_15.2cm_74cm.csv"
 }
 
@@ -28,9 +28,7 @@ for nombre, dataframe in dfs.items():
 plt.rcParams.update({'font.size': 14})
 
 
-def grafica_distancia_voltaje():
-    print("\nArchivos disponibles:", list(dfs_pivoteados.keys()))
-    nombre = input("Elija qué gráfica quiere: ")
+def grafica_distancia_voltaje(nombre):
 
     # Verificamos primero si existe para evitar errores
     if nombre in dfs_pivoteados:
@@ -65,7 +63,7 @@ def grafica_distancia_voltaje():
 
 
 # Llamas a la función las veces que necesites
-grafica_distancia_voltaje()
-grafica_distancia_voltaje()
-grafica_distancia_voltaje()
-grafica_distancia_voltaje()
+grafica_distancia_voltaje("placa metalica de 6 cm de ancho")
+grafica_distancia_voltaje("placa metalica de 9 cm de ancho")
+grafica_distancia_voltaje("placa metalica de 15 cm de ancho")
+grafica_distancia_voltaje("df1574")

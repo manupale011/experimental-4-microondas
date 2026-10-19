@@ -1,6 +1,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy.optimize import curve_fit
+from scipy.integrate import simpson
 
 df = pd.read_csv("voltaje_angulo_lateral.csv")  # cargo los datos
 df_pivoteado = df.pivot(index="angulo", columns="indice", values="voltaje")
@@ -64,5 +66,5 @@ def grafica_frente_polares():
 
 
 # Ejecutar las funciones
-grafica_frente()
-grafica_frente_polares()
+#grafica_frente()
+#grafica_frente_polares()
