@@ -12,11 +12,11 @@ def grafica_voltaje_angulo():
     for i in df_pivoteado.columns:
         if i != "angulo":
             y=df_pivoteado[i]
-            plt.plot(x,y,marker='', linewidth=2, label=f'Serie {i}')
+            plt.scatter(x,y,marker='s', label=f'Serie {i}')
 
-    plt.title('Dependencia del Voltaje con el Ángulo de Polarización', fontsize=18, fontweight='bold', pad=15)
-    plt.xlabel('Ángulo (º)', fontsize=16, labelpad=10)
-    plt.ylabel('Voltaje (V)', fontsize=16, labelpad=10)
+    #plt.title('Dependencia del Voltaje con el Ángulo de Polarización', fontsize=18, fontweight='bold', pad=15)
+    plt.xlabel('$\\alpha$ [º]', fontsize=18, labelpad=10)
+    plt.ylabel('V [v]', fontsize=18, labelpad=10)
 
     plt.xticks(fontsize=14)
     plt.yticks(fontsize=14)

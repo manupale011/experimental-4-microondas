@@ -73,17 +73,19 @@ def graficar_decaimiento():
             y_norm = df_pivoteado[i] / df_pivoteado[i].iloc[0]
 
             # Puntos experimentales
-            plt.scatter(x / 40, y_norm, alpha=0.5, label=f'Serie {i}' if idx < 5 else "")
+            plt.scatter(x, y_norm, alpha=0.5, label=f'Serie {i}' if idx < 5 else "")
 
             # Curva de ajuste individual (en gris tenue para no saturar)
             p_val = exponente[idx]
-            y_ajuste_indiv = ley_de_potencia_normalizada(x_suave, p_val)
-            plt.plot(x_suave / 40, y_ajuste_indiv, linestyle='--', color='gray', alpha=0.25, label='_nolegend_')
+            #y_ajuste_indiv = ley_de_potencia_normalizada(x_suave, p_val)
+            #plt.plot(x_suave / 40, y_ajuste_indiv, linestyle='--', color='gray', alpha=0.25, label='_nolegend_')
 
             idx += 1
 
     # Curva teórica evaluada con el exponente promedio
     y_ajuste_promedio = ley_de_potencia_normalizada(x_suave, exponente_promedio)
+    Y_teorico=ley_de_potencia_normalizada(x_suave,-2)
+    """
     plt.plot(
         x_suave / 40,
         y_ajuste_promedio,
@@ -91,11 +93,18 @@ def graficar_decaimiento():
         linewidth=2.5,
         label=f'Ajuste con Promedio ($p = {exponente_promedio:.2f}$)'
     )
-
-    plt.xlabel('Distancia / $x_0$')
-    plt.ylabel('Voltaje Normalizado')
-    plt.title('Curvas de Decaimiento y Ajuste de Ley de Potencia', fontweight='bold', pad=12)
-    plt.legend(loc='upper right', fontsize=10)
+    plt.plot(
+        x_suave / 40,
+        Y_teorico,
+        color='blue',
+        linewidth=2,
+        label='Ley de cuadrado inverso'
+    )
+    """
+    plt.xlabel('L / $L_0$ ($L_0 = 40 cm$)',fontsize=16)
+    plt.ylabel('V / $V_0$',fontsize=16)
+    #plt.title('Curvas de Decaimiento y Ajuste de Ley de Potencia', fontweight='bold', pad=12)
+    plt.legend(loc='upper right', fontsize=12)
     plt.grid(True, linestyle='--', alpha=0.7)
     plt.savefig('intensidad-distancia-ajuste.png', dpi=300, bbox_inches='tight')
     plt.show()

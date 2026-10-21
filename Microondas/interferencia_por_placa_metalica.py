@@ -6,7 +6,9 @@ archivos = {
     "placa metalica de 6 cm de ancho": "reflexion_metal_6cm.csv",
     "placa metalica de 9 cm de ancho": "reflexion_metal_9cm.csv",
     "placa metalica de 15 cm de ancho": "reflexion_metal_15.2cm_71cm.csv",
-    "df1574": "reflexion_metal_15.2cm_74cm.csv"
+    "df1574": "reflexion_metal_15.2cm_74cm.csv",
+    "placa metalica de 6 cm de ancho v2":"reflexion_metal_6cm(1).csv",
+    "placa metalica de 9 cm de ancho v2":"reflexion_metal_9cm(1).csv"
 }
 
 # 2. Creamos un diccionario vacío para guardar los DataFrames ya cargados
@@ -63,7 +65,5 @@ def grafica_distancia_voltaje(nombre):
 
 
 # Llamas a la función las veces que necesites
-grafica_distancia_voltaje("placa metalica de 6 cm de ancho")
-grafica_distancia_voltaje("placa metalica de 9 cm de ancho")
-grafica_distancia_voltaje("placa metalica de 15 cm de ancho")
-grafica_distancia_voltaje("df1574")
+for i in archivos.keys():
+    grafica_distancia_voltaje(i)
